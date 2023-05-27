@@ -1,14 +1,15 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
-body{
+
+body {
     background: url(https://picsum.photos/600) center/cover;
     min-height: 100vh;
 }
 
 
-h1{
+h1 {
     text-transform: uppercase;
     font-size: 2rem;
     letter-spacing: 2px;
@@ -17,7 +18,7 @@ h1{
     color: white;
 }
 
-main{
+main {
     background-color: rgba(255, 255, 255, 0.437);
     min-height: 500px;
     width: 90%;
@@ -27,65 +28,120 @@ main{
     box-shadow: 1px -1px 10px 3px #38383899;
 }
 
-.flexbox, .grid {
+.flexbox,
+.grid {
     border: 2px solid salmon;
     border-radius: 5px;
     margin: 15px;
 }
 
-.flexbox h2, .grid h2{
+.flexbox h2,
+.grid h2 {
     text-align: center;
+    text-transform: uppercase;
 }
 
-.flexbox ul{
+.flexbox ul {
     padding: 0;
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
-.flexbox li{
+
+.flexbox li {
     background: rgba(255, 255, 0, 0.215);
     min-height: 130px;
     width: 30%;
-    margin: 10px;
+    margin: 0px 10px 10px 10px;
     list-style-type: none;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 8px;
+    border: 1px solid;
+    transition:0.7s;
 }
 
-.grid img{
+.flexbox li:hover {
+    background: rgba(255, 208, 0, 0.787);
+    cursor: pointer;
+    border-radius: 8px;
+    border: 1px solid white;
+}
+
+.grid img {
     width: 100%;
 }
 
-.grid-container{
+.grid-container {
     display: grid;
     grid-template-columns: 30% 70%;
+
 }
 
-.grid-container form{
+.grid-container form {
     display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas:
+        "i1 i2"
+        "ta ta"
+        "vi bt";
+    /* gestion de grid */
 }
 
-.grid-container form input, .btn, textarea{
-    margin: 10px;
+textarea {
+    grid-area: ta;
+    resize: none;
+    height: 30px;
+}
+
+#firstname, #surname{
+    height: 20%;
+}
+
+
+.grid-container form input,
+.btn,
+textarea {
+    margin: 5px;
     padding: 5px;
+    font-size: 0.8rem;
+    font-family: 'Courier New', Courier, monospace;
 }
 
-.btn{
-    background: rgb(5, 102, 5);
-    border: 1px solid rgb(28, 27, 27);
+.btn {
+    background: rgba(166, 239, 166, 0.419);
     border-radius: 8px;
     color: white;
+    grid-area: bt;
+    transition: 0.2s;
 }
 
-.btn:hover{
-    background: rgb(7, 173, 7);
+.btn:hover {
+    background: rgb(140, 225, 140);
     cursor: pointer;
-    box-shadow: 1px -1px 10px 2px #38383899; 
-    text-shadow: 1px -1px 10px 2px #38383899; 
+    border: 2px solid white;
+    box-shadow: 1px -1px 10px 2px #38383899;
+    color: rgb(236, 66, 66);
 }
 
-textarea{
-    resize: none;
+/* RESPONSIVE */
+
+@media screen and (max-width:630px) {
+   
+    .grid-container {
+        display: block
+    
+    }
+    .grid-container form{
+        display: block;
+    }
+    #firstname, #surname{
+        height: 100%;
+    }
+    textarea {
+      
+        height: 100%;
+    }
 }
